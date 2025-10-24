@@ -1,0 +1,8 @@
+Bonjour {{ user.username }},
+
+Cliquez sur le lien suivant pour réinitialiser votre mot de passe :
+{{ reset_link }}
+
+Si vous n'avez pas fait cette demande, ignorez simplement cet email.
+
+L'équipe Plateforme.

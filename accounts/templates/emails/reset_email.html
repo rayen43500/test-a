@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réinitialisation du mot de passe</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f0f4f8; font-family: Arial, sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f0f4f8; padding:50px 0;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border-radius:12px; padding:40px; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+          <tr>
+            <td align="center" style="padding-bottom:30px;">
+              <h1 style="color:#1D4ED8; margin:0; font-size:28px;">Réinitialisation du mot de passe</h1>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size:16px; color:#333333; line-height:1.6; padding-bottom:20px;">
+              Bonjour <strong>{{ user.fullname }}</strong>,
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size:16px; color:#333333; line-height:1.6; padding-bottom:30px;">
+              Vous avez demandé à réinitialiser votre mot de passe. Cliquez sur le bouton ci-dessous pour définir un nouveau mot de passe :
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding-bottom:30px;">
+              <a href="{{ reset_link }}" target="_blank" style="display:inline-block; background-color:#1D4ED8; color:#ffffff; text-decoration:none; font-weight:bold; padding:15px 35px; border-radius:6px; font-size:16px; box-shadow:0 4px 10px rgba(29,78,216,0.3);">
+                Réinitialiser mon mot de passe
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size:14px; color:#1D4ED8; line-height:1.5; padding-bottom:30px;">
+              Si le bouton ne fonctionne pas, copiez et collez ce lien dans votre navigateur :<br>
+              <a href="{{ reset_link }}" style="color:#1D4ED8; text-decoration:none; word-break:break-all;">{{ reset_link }}</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-size:14px; color:#666666; line-height:1.5; border-top:1px solid #e0e0e0; padding-top:20px;">
+              Si vous n'avez pas fait cette demande, vous pouvez ignorer cet e-mail en toute sécurité. Votre mot de passe ne sera pas modifié.
+              <br><br>
+              Merci,<br>
+              <strong>L'équipe SKILLUP</strong>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

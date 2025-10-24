@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Application Status Update - {{ formation.title }}</title>
+</head>
+<body>
+    <h2>Application Status Update</h2>
+    <p>Dear {{ candidate.first_name }},</p>
+    
+    <p>Thank you for your interest in <strong>{{ formation.title }}</strong>.</p>
+    
+    <p>We regret to inform you that your application has not been accepted for this course at this time.</p>
+
+    {% if reviewer_notes %}
+    <p><strong>Instructor's Note:</strong><br>{{ reviewer_notes }}</p>
+    {% endif %}
+
+    <p>We encourage you to apply again in the future or explore our other course offerings.</p>
+    
+    <p>
+        <a href="http://localhost:3000/formations" 
+           style="display:inline-block;padding:10px 20px;font-size:16px;color:#ffffff;background-color:#007bff;text-decoration:none;border-radius:4px;">
+            Here's some other courses you can view
+        </a>
+    </p>
+    
+    <p>Best regards,<br>{{ site_name }} Team</p>
+</body>
+</html>

@@ -1,0 +1,264 @@
+{
+  "info": {
+    "name": "Django User Management API",
+    "description": "Complete API collection for Django REST Framework User Management system",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000/api",
+      "type": "string"
+    },
+    {
+      "key": "access_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "refresh_token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"johndoe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"securepassword123\",\n  \"password_confirm\": \"securepassword123\",\n  \"fullname\": \"John Doe\",\n  \"role\": \"Candidat\",\n  \"phone_number\": \"+1234567890\",\n  \"birthdate\": \"1990-01-01\",\n  \"gender\": \"M\",\n  \"address\": \"123 Main St, City, Country\",\n  \"skills\": \"Python, Django, JavaScript\",\n  \"annees_experience\": 5,\n  \"bio\": \"Experienced developer\",\n  \"website\": \"https://johndoe.com\",\n  \"portfolio_url\": \"https://portfolio.johndoe.com\",\n  \"linkedin_url\": \"https://linkedin.com/in/johndoe\",\n  \"github_url\": \"https://github.com/johndoe\",\n  \"languages\": [\n    {\"language\": \"English\", \"proficiency\": \"Native\"},\n    {\"language\": \"French\", \"proficiency\": \"Intermediate\"}\n  ],\n  \"social_links\": [\n    {\"platform\": \"Twitter\", \"url\": \"https://twitter.com/johndoe\"}\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/register/",
+              "host": ["{{base_url}}"],
+              "path": ["register", ""]
+            }
+          }
+        },
+        {
+          "name": "Register Admin User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"email\": \"admin@example.com\",\n  \"password\": \"admin123456\",\n  \"password_confirm\": \"admin123456\",\n  \"fullname\": \"System Administrator\",\n  \"role\": \"Admin\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/register/",
+              "host": ["{{base_url}}"],
+              "path": ["register", ""]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"securepassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login/",
+              "host": ["{{base_url}}"],
+              "path": ["login", ""]
+            }
+          }
+        },
+        {
+          "name": "Login Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"admin123456\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login/",
+              "host": ["{{base_url}}"],
+              "path": ["login", ""]
+            }
+          }
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refresh\": \"{{refresh_token}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/token/refresh/",
+              "host": ["{{base_url}}"],
+              "path": ["token", "refresh", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Profile Management",
+      "item": [
+        {
+          "name": "Get Own Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/profile/",
+              "host": ["{{base_url}}"],
+              "path": ["profile", ""]
+            }
+          }
+        },
+        {
+          "name": "Update Own Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullname\": \"John Doe Updated\",\n  \"bio\": \"Updated bio information\",\n  \"skills\": \"Python, Django, JavaScript, React\",\n  \"annees_experience\": 6,\n  \"languages\": [\n    {\"language\": \"English\", \"proficiency\": \"Native\"},\n    {\"language\": \"Spanish\", \"proficiency\": \"Beginner\"}\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/profile/",
+              "host": ["{{base_url}}"],
+              "path": ["profile", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin - User Management",
+      "item": [
+        {
+          "name": "List All Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/",
+              "host": ["{{base_url}}"],
+              "path": ["users", ""]
+            }
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/1/",
+              "host": ["{{base_url}}"],
+              "path": ["users", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Update User by ID",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullname\": \"Updated by Admin\",\n  \"role\": \"Recruteur\",\n  \"is_active\": true,\n  \"bio\": \"Profile updated by administrator\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/users/1/",
+              "host": ["{{base_url}}"],
+              "path": ["users", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Delete User by ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/1/",
+              "host": ["{{base_url}}"],
+              "path": ["users", "1", ""]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

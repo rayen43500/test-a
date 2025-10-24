@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Application Approved - {{ formation.title }}</title>
+</head>
+<body>
+    <h2>Congratulations, {{ candidate.first_name }}!</h2>
+    <p>Your application for <strong>{{ formation.title }}</strong> has been approved.</p>
+    
+    <p><strong>Course Details:</strong></p>
+    <ul>
+        <li>Instructor: {{ instructor.get_full_name }}</li>
+        <li>Start Date: {{ formation.start_date|date:"F d, Y" }}</li>
+        <li>Location: {{ formation.location }}</li>
+    </ul>
+
+    {% if reviewer_notes %}
+    <p><strong>Instructor's Note:</strong><br>{{ reviewer_notes }}</p>
+    {% endif %}
+
+    <p><a href="https://{{ site_domain }}{{ action_url }}">View Course Details</a></p>
+    
+    <p>We look forward to seeing you in class!</p>
+    
+    <p>Best regards,<br>{{ site_name }} Team</p>
+</body>
+</html>

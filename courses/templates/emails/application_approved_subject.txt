@@ -1,0 +1,1 @@
+Your Application for {{ formation.title }} Has Been Approved
